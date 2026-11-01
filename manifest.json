@@ -3,11 +3,42 @@
   "apkUrl": "https://github.com/DevJotaVx/jotapoke/releases/download/v2/JotaPoke.apk",
   "apkSize": 155540172,
   "mods": [
-    {"name": "Pixelmon", "file": "Pixelmon-1.12.2-8.4.3-universal.jar", "size": 385736381, "url": "https://mediafilez.forgecdn.net/files/4348/446/Pixelmon-1.12.2-8.4.3-universal.jar"},
-    {"name": "MineColonies", "file": "minecolonies-1.12.2-0.11.841-BETA-universal.jar", "size": 34907058, "url": "https://mediafilez.forgecdn.net/files/3951/291/minecolonies-1.12.2-0.11.841-BETA-universal.jar"},
-    {"name": "Structurize", "file": "structurize-1.12.2-0.10.277-RELEASE.jar", "size": 1133312, "url": "https://mediafilez.forgecdn.net/files/2901/463/structurize-1.12.2-0.10.277-RELEASE.jar"}
+    {
+      "name": "Pixelmon",
+      "file": "Pixelmon-1.12.2-8.4.3-universal.jar",
+      "size": 385736381,
+      "url": "https://mediafilez.forgecdn.net/files/4348/446/Pixelmon-1.12.2-8.4.3-universal.jar"
+    },
+    {
+      "name": "MineColonies",
+      "file": "minecolonies-1.12.2-0.11.841-BETA-universal.jar",
+      "size": 34907058,
+      "url": "https://mediafilez.forgecdn.net/files/3951/291/minecolonies-1.12.2-0.11.841-BETA-universal.jar"
+    },
+    {
+      "name": "Structurize",
+      "file": "structurize-1.12.2-0.10.277-RELEASE.jar",
+      "size": 1133312,
+      "url": "https://mediafilez.forgecdn.net/files/2901/463/structurize-1.12.2-0.10.277-RELEASE.jar"
+    },
+    {
+      "name": "Iron Chests",
+      "file": "ironchest-1.12.2-7.0.72.847.jar",
+      "size": 956692,
+      "url": "https://mediafilez.forgecdn.net/files/2747/935/ironchest-1.12.2-7.0.72.847.jar"
+    },
+    {
+      "name": "Iron Backpacks",
+      "file": "IronBackpacks-1.12.2-3.0.8-12.jar",
+      "size": 465363,
+      "url": "https://mediafilez.forgecdn.net/files/2564/573/IronBackpacks-1.12.2-3.0.8-12.jar"
+    }
   ],
   "files": [
-    {"path": "servers.dat", "size": 68, "url": "https://raw.githubusercontent.com/DevJotaVx/jotapoke/main/files/servers.dat"}
+    {
+      "path": "servers.dat",
+      "size": 68,
+      "url": "https://raw.githubusercontent.com/DevJotaVx/jotapoke/main/files/servers.dat"
+    }
   ]
 }
