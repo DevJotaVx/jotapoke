@@ -106,6 +106,42 @@
       "file": "sophisticatedstorage-1.21.1-1.6.13.2216.jar",
       "size": 1935455,
       "url": "https://cdn.modrinth.com/data/hMlaZH8f/versions/nzHREqMt/sophisticatedstorage-1.21.1-1.6.13.2216.jar"
+    },
+    {
+      "name": "entityculling",
+      "file": "entityculling-neoforge-1.11.3-mc1.21.1.jar",
+      "size": 1510075,
+      "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/eieYbWYb/entityculling-neoforge-1.11.3-mc1.21.1.jar"
+    },
+    {
+      "name": "immediatelyfast",
+      "file": "ImmediatelyFast-NeoForge-1.6.15+1.21.1.jar",
+      "size": 368896,
+      "url": "https://cdn.modrinth.com/data/5ZwdcRci/versions/EJzmEPZV/ImmediatelyFast-NeoForge-1.6.15%2B1.21.1.jar"
+    },
+    {
+      "name": "moreculling",
+      "file": "moreculling-neoforge-1.21.1-1.0.11.jar",
+      "size": 337255,
+      "url": "https://cdn.modrinth.com/data/51shyZVL/versions/ucyxnpWe/moreculling-neoforge-1.21.1-1.0.11.jar"
+    },
+    {
+      "name": "cloth-config",
+      "file": "cloth-config-15.0.140-neoforge.jar",
+      "size": 1163890,
+      "url": "https://cdn.modrinth.com/data/9s6osm5g/versions/izKINKFg/cloth-config-15.0.140-neoforge.jar"
+    },
+    {
+      "name": "dynamic-fps",
+      "file": "dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar",
+      "size": 220193,
+      "url": "https://cdn.modrinth.com/data/LQ3K71Q1/versions/T238FZpQ/dynamic-fps-3.11.4%2Bminecraft-1.21.0-neoforge.jar"
+    },
+    {
+      "name": "badoptimizations",
+      "file": "BadOptimizations-2.4.1-1.21.1.jar",
+      "size": 283566,
+      "url": "https://cdn.modrinth.com/data/g96Z4WVZ/versions/S2qthD5S/BadOptimizations-2.4.1-1.21.1.jar"
     }
   ],
   "files": [
