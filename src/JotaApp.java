@@ -23,12 +23,11 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
     // Usado só se o manifesto não puder ser lido (sem internet ou GitHub fora do ar).
     static final String MR = "https://cdn.modrinth.com/data/";
     static final String[][] MODS = {
-        {"Pixelmon", CDN + "9285/683/Pixelmon-1.21.1-9.4.2-universal.jar", "Pixelmon-1.21.1-9.4.2-universal.jar", "401077926"},
-        {"MineColonies", CDN + "9394/366/minecolonies-1.1.1410-1.21.1-snapshot.jar", "minecolonies-1.1.1410-1.21.1-snapshot.jar", "78351358"},
-        {"Structurize", CDN + "9333/948/structurize-1.0.837-1.21.1-snapshot.jar", "structurize-1.0.837-1.21.1-snapshot.jar", "1063621"},
-        {"BlockUI", CDN + "9137/5/blockui-1.0.212-1.21.1-snapshot.jar", "blockui-1.0.212-1.21.1-snapshot.jar", "468141"},
-        {"Domum Ornamentum", CDN + "9394/376/domum-ornamentum-1.0.237-snapshot-main.jar", "domum-ornamentum-1.0.237-snapshot-main.jar", "1151617"},
-        {"Multi-Piston", CDN + "7097/877/multipiston-1.2.58-1.21.1.jar", "multipiston-1.2.58-1.21.1.jar", "34139"},
+        {"Pixelmon", CDN + "4348/446/Pixelmon-1.12.2-8.4.3-universal.jar", "Pixelmon-1.12.2-8.4.3-universal.jar", "385736381"},
+        {"MineColonies", CDN + "3951/291/minecolonies-1.12.2-0.11.841-BETA-universal.jar", "minecolonies-1.12.2-0.11.841-BETA-universal.jar", "34907058"},
+        {"Structurize", CDN + "2901/463/structurize-1.12.2-0.10.277-RELEASE.jar", "structurize-1.12.2-0.10.277-RELEASE.jar", "1133312"},
+        {"Iron Chests", CDN + "2747/935/ironchest-1.12.2-7.0.72.847.jar", "ironchest-1.12.2-7.0.72.847.jar", "956692"},
+        {"Iron Backpacks", CDN + "2564/573/IronBackpacks-1.12.2-3.0.8-12.jar", "IronBackpacks-1.12.2-3.0.8-12.jar", "465363"},
     };
     static volatile boolean running = false;
 
@@ -223,7 +222,7 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
         if (base == null) return;
         final File mc = new File(base, ".minecraft");
         mc.mkdirs();
-        File marker = new File(mc, ".jotapoke_v2");
+        File marker = new File(mc, ".jotapoke_v3");
         if (!marker.exists()) {
             copyAssets(ctx.getAssets(), "jotapoke", mc);
             marker.createNewFile();
