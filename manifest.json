@@ -1,7 +1,7 @@
 {
-  "apkVersion": 10000006,
-  "apkUrl": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/JotaPoke.apk",
-  "apkSize": 151538495,
+  "apkVersion": 10000007,
+  "apkUrl": "https://github.com/DevJotaVx/jotapoke/releases/download/v7/JotaPoke.apk",
+  "apkSize": 151542776,
   "minecraft": "1.21.1",
   "loader": "neoforge-21.1.265",
   "mods": [

@@ -45,8 +45,9 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
     }
 
     // Layouts de controle do JotaPoke, copiados para files/controlmap.
-    static final String[] CONTROL_FILES = {"jotapoke_classico.json", "jotapoke_grandes.json", "jotapoke_canhoto.json"};
-    static final String[] CONTROL_NAMES = {"Clássico (setas à esquerda)", "Botões grandes", "Canhoto (setas à direita)"};
+    static final String[] CONTROL_FILES = {"jotapoke_joystick.json", "jotapoke_classico.json", "jotapoke_teclado.json"};
+    static final String[] CONTROL_NAMES = {"Joystick", "Setas", "Teclado e mouse"};
+    static final String DEFAULT_CTRL = "default.json";
 
     static void installControls(Context ctx) throws IOException {
         File dir = new File(ctx.getExternalFilesDir(null), "controlmap");
@@ -60,26 +61,7 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
         public void onActivityResumed(final android.app.Activity a) {
             if (asked || !a.getClass().getName().endsWith("LauncherActivity")) return;
             asked = true;
-            final android.content.SharedPreferences prefs = android.preference.PreferenceManager.getDefaultSharedPreferences(a);
-            final File dir = new File(a.getExternalFilesDir(null), "controlmap");
-            String current = prefs.getString("defaultCtrl", "");
-            int sel = 0;
-            for (int i = 0; i < CONTROL_FILES.length; i++) if (current.endsWith(CONTROL_FILES[i])) sel = i;
-            final int[] choice = {sel};
-            new android.app.AlertDialog.Builder(a)
-                .setTitle("Como você quer jogar?")
-                .setSingleChoiceItems(CONTROL_NAMES, sel, new android.content.DialogInterface.OnClickListener() {
-                    public void onClick(android.content.DialogInterface d, int w) { choice[0] = w; }
-                })
-                .setPositiveButton("Continuar", new android.content.DialogInterface.OnClickListener() {
-                    public void onClick(android.content.DialogInterface d, int w) {
-                        String path = new File(dir, CONTROL_FILES[choice[0]]).getAbsolutePath();
-                        prefs.edit().putString("defaultCtrl", path).apply();
-                        Toast.makeText(a, "Controle: " + CONTROL_NAMES[choice[0]], Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setCancelable(false)
-                .show();
+            showChooser(a);
         }
         public void onActivityCreated(android.app.Activity a, android.os.Bundle b) {}
         public void onActivityStarted(android.app.Activity a) {}
@@ -87,6 +69,150 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
         public void onActivityStopped(android.app.Activity a) {}
         public void onActivitySaveInstanceState(android.app.Activity a, android.os.Bundle b) {}
         public void onActivityDestroyed(android.app.Activity a) {}
+    }
+
+    // Tela cheia "Escolha seus controles": três cartões e a opção de usar o controle padrão do Pojav.
+    static void showChooser(final android.app.Activity a) {
+        final android.content.SharedPreferences prefs = android.preference.PreferenceManager.getDefaultSharedPreferences(a);
+        final File dir = new File(a.getExternalFilesDir(null), "controlmap");
+        final float dp = a.getResources().getDisplayMetrics().density;
+        final android.app.Dialog dlg = new android.app.Dialog(a, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+        dlg.setCancelable(false);
+
+        android.widget.LinearLayout root = new android.widget.LinearLayout(a);
+        root.setOrientation(android.widget.LinearLayout.VERTICAL);
+        root.setGravity(android.view.Gravity.CENTER);
+        root.setPadding((int) (16 * dp), (int) (16 * dp), (int) (16 * dp), (int) (16 * dp));
+        root.setBackground(new android.graphics.drawable.GradientDrawable(
+            android.graphics.drawable.GradientDrawable.Orientation.TOP_BOTTOM, new int[]{0xFF14204F, 0xFF0E3B2A}));
+
+        android.widget.TextView title = new android.widget.TextView(a);
+        title.setText("Escolha seus controles");
+        title.setTextColor(0xFFFFFFFF);
+        title.setTextSize(26);
+        title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        title.setGravity(android.view.Gravity.CENTER);
+        title.setShadowLayer(6, 0, 3, 0xFF000000);
+        root.addView(title);
+
+        android.widget.TextView sub = new android.widget.TextView(a);
+        sub.setText("Dá para trocar depois: é só abrir o JotaPoke de novo.");
+        sub.setTextColor(0xFFB8C7FF);
+        sub.setTextSize(13);
+        sub.setGravity(android.view.Gravity.CENTER);
+        sub.setPadding(0, (int) (4 * dp), 0, (int) (16 * dp));
+        root.addView(sub);
+
+        android.widget.LinearLayout row = new android.widget.LinearLayout(a);
+        row.setOrientation(android.widget.LinearLayout.HORIZONTAL);
+        row.setGravity(android.view.Gravity.CENTER);
+        root.addView(row, new android.widget.LinearLayout.LayoutParams(-1, -2));
+
+        final android.widget.CheckBox old = new android.widget.CheckBox(a);
+
+        for (int i = 0; i < CONTROL_FILES.length; i++) {
+            final int idx = i;
+            android.widget.LinearLayout card = new android.widget.LinearLayout(a);
+            card.setOrientation(android.widget.LinearLayout.VERTICAL);
+            card.setGravity(android.view.Gravity.CENTER_HORIZONTAL);
+            card.setPadding((int) (8 * dp), (int) (12 * dp), (int) (8 * dp), (int) (12 * dp));
+            android.graphics.drawable.GradientDrawable cbg = new android.graphics.drawable.GradientDrawable();
+            cbg.setColor(0x33FFFFFF); cbg.setCornerRadius(16 * dp); cbg.setStroke((int) (1 * dp), 0x55FFFFFF);
+            card.setBackground(cbg);
+
+            card.addView(new ControlIcon(a, i), new android.widget.LinearLayout.LayoutParams((int) (72 * dp), (int) (72 * dp)));
+
+            android.widget.TextView name = new android.widget.TextView(a);
+            name.setText(CONTROL_NAMES[i]);
+            name.setTextColor(0xFFFFFFFF);
+            name.setTextSize(15);
+            name.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+            name.setGravity(android.view.Gravity.CENTER);
+            name.setPadding(0, (int) (6 * dp), 0, (int) (10 * dp));
+            card.addView(name);
+
+            android.widget.Button pick = new android.widget.Button(a);
+            pick.setText("Escolher");
+            pick.setAllCaps(false);
+            pick.setTextColor(0xFFFFFFFF);
+            pick.setTextSize(15);
+            pick.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+            android.graphics.drawable.GradientDrawable bbg = new android.graphics.drawable.GradientDrawable();
+            bbg.setColor(0xFF3FA535); bbg.setCornerRadius(10 * dp); bbg.setStroke((int) (2 * dp), 0xFF2A7A22);
+            pick.setBackground(bbg);
+            pick.setOnClickListener(new android.view.View.OnClickListener() {
+                public void onClick(android.view.View v) {
+                    String file = old.isChecked() ? DEFAULT_CTRL : CONTROL_FILES[idx];
+                    prefs.edit().putString("defaultCtrl", new File(dir, file).getAbsolutePath()).apply();
+                    Toast.makeText(a, "Controle: " + (old.isChecked() ? "padrão do Pojav" : CONTROL_NAMES[idx]), Toast.LENGTH_SHORT).show();
+                    dlg.dismiss();
+                }
+            });
+            card.addView(pick, new android.widget.LinearLayout.LayoutParams(-1, (int) (44 * dp)));
+
+            android.widget.LinearLayout.LayoutParams lp = new android.widget.LinearLayout.LayoutParams(0, -2, 1f);
+            lp.setMargins((int) (6 * dp), 0, (int) (6 * dp), 0);
+            row.addView(card, lp);
+        }
+
+        old.setText("Usar o controle padrão do Pojav");
+        old.setTextColor(0xFFDDDDDD);
+        old.setTextSize(14);
+        old.setChecked(prefs.getString("defaultCtrl", "").endsWith("/" + DEFAULT_CTRL));
+        android.widget.LinearLayout.LayoutParams olp = new android.widget.LinearLayout.LayoutParams(-2, -2);
+        olp.topMargin = (int) (18 * dp);
+        root.addView(old, olp);
+
+        android.widget.ScrollView scroll = new android.widget.ScrollView(a);
+        scroll.setFillViewport(true);
+        scroll.addView(root, new android.view.ViewGroup.LayoutParams(-1, -1));
+        dlg.setContentView(scroll);
+        dlg.show();
+    }
+
+    // Ícones desenhados à mão: 0 = joystick, 1 = setas, 2 = teclado e mouse.
+    static class ControlIcon extends android.view.View {
+        final int kind;
+        final android.graphics.Paint p = new android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
+        ControlIcon(Context c, int kind) { super(c); this.kind = kind; }
+        @Override protected void onDraw(android.graphics.Canvas c) {
+            float w = getWidth(), h = getHeight(), cx = w / 2, cy = h / 2, s = Math.min(w, h);
+            p.setStyle(android.graphics.Paint.Style.FILL);
+            p.setColor(0x3366E07A);
+            c.drawCircle(cx, cy, s * 0.48f, p);
+            if (kind == 0) {
+                p.setColor(0xFFE8ECF5); c.drawCircle(cx, cy, s * 0.34f, p);
+                p.setColor(0xFF2B2F3A); c.drawCircle(cx, cy, s * 0.20f, p);
+                p.setColor(0xFF4A5060); c.drawCircle(cx - s * 0.04f, cy - s * 0.04f, s * 0.12f, p);
+            } else if (kind == 1) {
+                p.setColor(0xFFE8ECF5);
+                float a = s * 0.13f, b = s * 0.36f;
+                c.drawRoundRect(new android.graphics.RectF(cx - a, cy - b, cx + a, cy + b), a * 0.4f, a * 0.4f, p);
+                c.drawRoundRect(new android.graphics.RectF(cx - b, cy - a, cx + b, cy + a), a * 0.4f, a * 0.4f, p);
+                p.setColor(0xFF9AA3B5);
+                android.graphics.Path t = new android.graphics.Path();
+                float k = s * 0.06f, o = s * 0.25f;
+                t.moveTo(cx, cy - o - k); t.lineTo(cx - k, cy - o + k * 0.6f); t.lineTo(cx + k, cy - o + k * 0.6f); t.close();
+                t.moveTo(cx, cy + o + k); t.lineTo(cx - k, cy + o - k * 0.6f); t.lineTo(cx + k, cy + o - k * 0.6f); t.close();
+                t.moveTo(cx - o - k, cy); t.lineTo(cx - o + k * 0.6f, cy - k); t.lineTo(cx - o + k * 0.6f, cy + k); t.close();
+                t.moveTo(cx + o + k, cy); t.lineTo(cx + o - k * 0.6f, cy - k); t.lineTo(cx + o - k * 0.6f, cy + k); t.close();
+                c.drawPath(t, p);
+            } else {
+                p.setColor(0xFFE8ECF5);
+                android.graphics.RectF kb = new android.graphics.RectF(cx - s * 0.40f, cy - s * 0.16f, cx + s * 0.16f, cy + s * 0.20f);
+                c.drawRoundRect(kb, s * 0.04f, s * 0.04f, p);
+                p.setColor(0xFF9AA3B5);
+                float kw = (kb.width() - s * 0.08f) / 5, kh = (kb.height() - s * 0.08f) / 3;
+                for (int r = 0; r < 3; r++) for (int q = 0; q < 5; q++) {
+                    float x = kb.left + s * 0.04f + q * kw, y = kb.top + s * 0.04f + r * kh;
+                    c.drawRoundRect(new android.graphics.RectF(x + 1, y + 1, x + kw - 2, y + kh - 2), 3, 3, p);
+                }
+                p.setColor(0xFFE8ECF5);
+                c.drawRoundRect(new android.graphics.RectF(cx + s * 0.22f, cy - s * 0.06f, cx + s * 0.40f, cy + s * 0.24f), s * 0.09f, s * 0.09f, p);
+                p.setColor(0xFF9AA3B5);
+                c.drawRect(cx + s * 0.305f, cy - s * 0.05f, cx + s * 0.315f, cy + s * 0.06f, p);
+            }
+        }
     }
 
     static void setup(final Context ctx) throws IOException {

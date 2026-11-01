@@ -1,0 +1,53 @@
+{
+ "mControlDataList": [
+  {
+   "bgColor": 1291845632,
+   "cornerRadius": 0,
+   "dynamicX": "${margin} * 3 + ${width} * 2",
+   "dynamicY": "${margin}",
+   "height": 30,
+   "isDynamicBtn": false,
+   "isHideable": false,
+   "isSwipeable": false,
+   "isToggle": false,
+   "keycodes": [
+    -1,
+    0,
+    0,
+    0
+   ],
+   "name": "Keyboard",
+   "opacity": 1,
+   "passThruEnabled": false,
+   "strokeColor": -1,
+   "strokeWidth": 0,
+   "width": 80
+  },
+  {
+   "bgColor": 1291845632,
+   "cornerRadius": 0,
+   "dynamicX": "${right}",
+   "dynamicY": "${margin}",
+   "height": 30,
+   "isDynamicBtn": false,
+   "isHideable": false,
+   "isSwipeable": false,
+   "isToggle": false,
+   "keycodes": [
+    -5,
+    0,
+    0,
+    0
+   ],
+   "name": "Mouse",
+   "opacity": 1,
+   "passThruEnabled": false,
+   "strokeColor": -1,
+   "strokeWidth": 0,
+   "width": 80
+  }
+ ],
+ "mDrawerDataList": [],
+ "scaledAt": 100,
+ "version": 4
+}
