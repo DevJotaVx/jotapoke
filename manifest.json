@@ -92,6 +92,24 @@
       "file": "LunatriusCore-1.12.2-1.2.0.42-universal.jar",
       "size": 76753,
       "url": "https://mediafilez.forgecdn.net/files/2489/549/LunatriusCore-1.12.2-1.2.0.42-universal.jar"
+    },
+    {
+      "name": "AI Improvements",
+      "file": "AIImprovements-1.12-0.0.1b3.jar",
+      "size": 7266,
+      "url": "https://mediafilez.forgecdn.net/files/2450/734/AIImprovements-1.12-0.0.1b3.jar"
+    },
+    {
+      "name": "Clumps",
+      "file": "Clumps-3.1.2.jar",
+      "size": 13792,
+      "url": "https://mediafilez.forgecdn.net/files/2666/198/Clumps-3.1.2.jar"
+    },
+    {
+      "name": "BetterFPS",
+      "file": "BetterFps-1.4.8.jar",
+      "size": 155196,
+      "url": "https://mediafilez.forgecdn.net/files/2483/393/BetterFps-1.4.8.jar"
     }
   ],
   "files": [
