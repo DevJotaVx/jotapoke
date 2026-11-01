@@ -1,121 +1,111 @@
 {
-  "apkVersion": 10000005,
-  "apkUrl": "https://github.com/DevJotaVx/jotapoke/releases/download/v5/JotaPoke.apk",
-  "apkSize": 155757537,
+  "apkVersion": 10000006,
+  "apkUrl": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/JotaPoke.apk",
+  "apkSize": 151538495,
+  "minecraft": "1.21.1",
+  "loader": "neoforge-21.1.265",
   "mods": [
     {
       "name": "Pixelmon",
-      "file": "Pixelmon-1.12.2-8.4.3-universal.jar",
-      "size": 385736381,
-      "url": "https://mediafilez.forgecdn.net/files/4348/446/Pixelmon-1.12.2-8.4.3-universal.jar"
+      "file": "Pixelmon-1.21.1-9.4.2-universal.jar",
+      "size": 401077926,
+      "url": "https://mediafilez.forgecdn.net/files/9285/683/Pixelmon-1.21.1-9.4.2-universal.jar"
     },
     {
       "name": "MineColonies",
-      "file": "minecolonies-1.12.2-0.11.841-BETA-universal.jar",
-      "size": 34907058,
-      "url": "https://mediafilez.forgecdn.net/files/3951/291/minecolonies-1.12.2-0.11.841-BETA-universal.jar"
+      "file": "minecolonies-1.1.1410-1.21.1-snapshot.jar",
+      "size": 78351358,
+      "url": "https://mediafilez.forgecdn.net/files/9394/366/minecolonies-1.1.1410-1.21.1-snapshot.jar"
     },
     {
       "name": "Structurize",
-      "file": "structurize-1.12.2-0.10.277-RELEASE.jar",
-      "size": 1133312,
-      "url": "https://mediafilez.forgecdn.net/files/2901/463/structurize-1.12.2-0.10.277-RELEASE.jar"
+      "file": "structurize-1.0.837-1.21.1-snapshot.jar",
+      "size": 1063621,
+      "url": "https://mediafilez.forgecdn.net/files/9333/948/structurize-1.0.837-1.21.1-snapshot.jar"
     },
     {
-      "name": "Iron Chests",
-      "file": "ironchest-1.12.2-7.0.72.847.jar",
-      "size": 956692,
-      "url": "https://mediafilez.forgecdn.net/files/2747/935/ironchest-1.12.2-7.0.72.847.jar"
+      "name": "BlockUI",
+      "file": "blockui-1.0.212-1.21.1-snapshot.jar",
+      "size": 468141,
+      "url": "https://mediafilez.forgecdn.net/files/9137/5/blockui-1.0.212-1.21.1-snapshot.jar"
     },
     {
-      "name": "Iron Backpacks",
-      "file": "IronBackpacks-1.12.2-3.0.8-12.jar",
-      "size": 465363,
-      "url": "https://mediafilez.forgecdn.net/files/2564/573/IronBackpacks-1.12.2-3.0.8-12.jar"
+      "name": "Domum Ornamentum",
+      "file": "domum-ornamentum-1.0.237-snapshot-main.jar",
+      "size": 1151617,
+      "url": "https://mediafilez.forgecdn.net/files/9394/376/domum-ornamentum-1.0.237-snapshot-main.jar"
     },
     {
-      "name": "JEI",
-      "file": "jei_1.12.2-4.22.0.1034.jar",
-      "size": 715518,
-      "url": "https://mediafilez.forgecdn.net/files/8964/563/jei_1.12.2-4.22.0.1034.jar"
+      "name": "Multi-Piston",
+      "file": "multipiston-1.2.58-1.21.1.jar",
+      "size": 34139,
+      "url": "https://mediafilez.forgecdn.net/files/7097/877/multipiston-1.2.58-1.21.1.jar"
     },
     {
-      "name": "Mowzie's Mobs",
-      "file": "mowziesmobs-1.5.8.jar",
-      "size": 5185246,
-      "url": "https://mediafilez.forgecdn.net/files/3048/685/mowziesmobs-1.5.8.jar"
+      "name": "mowziesmobs",
+      "file": "mowziesmobs-1.21.1-1.8.2.jar",
+      "size": 36042925,
+      "url": "https://cdn.modrinth.com/data/BFbX9xcm/versions/xgAXTl17/mowziesmobs-1.21.1-1.8.2.jar"
     },
     {
-      "name": "LLibrary",
-      "file": "llibrary-1.7.20-1.12.2.jar",
-      "size": 884550,
-      "url": "https://mediafilez.forgecdn.net/files/3116/493/llibrary-1.7.20-1.12.2.jar"
+      "name": "geckolib",
+      "file": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "size": 634531,
+      "url": "https://cdn.modrinth.com/data/8BmcQJ2H/versions/Grwn5rUB/geckolib-neoforge-1.21.1-4.9.3.jar"
     },
     {
-      "name": "FoamFix",
-      "file": "foamfix-0.10.15-1.12.2.jar",
-      "size": 229335,
-      "url": "https://mediafilez.forgecdn.net/files/3973/967/foamfix-0.10.15-1.12.2.jar"
+      "name": "jei",
+      "file": "jei-1.21.1-neoforge-19.70.0.469.jar",
+      "size": 4784333,
+      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/1vC6z8wV/jei-1.21.1-neoforge-19.70.0.469.jar"
     },
     {
-      "name": "JourneyMap",
-      "file": "journeymap-forge-1.12.2-6.0.10.jar",
-      "size": 6055924,
-      "url": "https://mediafilez.forgecdn.net/files/9049/805/journeymap-forge-1.12.2-6.0.10.jar"
-    },
-    {
-      "name": "FancyMenu",
-      "file": "fancymenu_forge_2.14.9_MC_1.12-1.12.2.jar",
-      "size": 1260832,
-      "url": "https://mediafilez.forgecdn.net/files/4655/936/fancymenu_forge_2.14.9_MC_1.12-1.12.2.jar"
-    },
-    {
-      "name": "Konkrete",
-      "file": "konkrete_forge_1.6.1_MC_1.12-1.12.2.jar",
-      "size": 618150,
-      "url": "https://mediafilez.forgecdn.net/files/4514/895/konkrete_forge_1.6.1_MC_1.12-1.12.2.jar"
-    },
-    {
-      "name": "MixinBootstrap",
-      "file": "_MixinBootstrap-1.1.0.jar",
-      "size": 1119478,
-      "url": "https://mediafilez.forgecdn.net/files/3437/402/_MixinBootstrap-1.1.0.jar"
-    },
-    {
-      "name": "Schematica",
-      "file": "Schematica-1.12.2-1.8.0.169-universal.jar",
-      "size": 336150,
-      "url": "https://mediafilez.forgecdn.net/files/2554/100/Schematica-1.12.2-1.8.0.169-universal.jar"
-    },
-    {
-      "name": "LunatriusCore",
-      "file": "LunatriusCore-1.12.2-1.2.0.42-universal.jar",
-      "size": 76753,
-      "url": "https://mediafilez.forgecdn.net/files/2489/549/LunatriusCore-1.12.2-1.2.0.42-universal.jar"
-    },
-    {
-      "name": "AI Improvements",
-      "file": "AIImprovements-1.12-0.0.1b3.jar",
-      "size": 7266,
-      "url": "https://mediafilez.forgecdn.net/files/2450/734/AIImprovements-1.12-0.0.1b3.jar"
+      "name": "mezz_config",
+      "file": "mezz_config-1.21.1-neoforge-0.6.10-standalone.jar",
+      "size": 346260,
+      "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/sL7Ghaz1/mezz_config-1.21.1-neoforge-0.6.10-standalone.jar"
     },
     {
       "name": "Clumps",
-      "file": "Clumps-3.1.2.jar",
-      "size": 13792,
-      "url": "https://mediafilez.forgecdn.net/files/2666/198/Clumps-3.1.2.jar"
+      "file": "Clumps-neoforge-1.21.1-19.0.0.1.jar",
+      "size": 18382,
+      "url": "https://cdn.modrinth.com/data/Wnxd13zP/versions/jo7lDoK4/Clumps-neoforge-1.21.1-19.0.0.1.jar"
     },
     {
-      "name": "BetterFPS",
-      "file": "BetterFps-1.4.8.jar",
-      "size": 155196,
-      "url": "https://mediafilez.forgecdn.net/files/2483/393/BetterFps-1.4.8.jar"
+      "name": "AI",
+      "file": "AI-Improvements-1.21-0.5.3.jar",
+      "size": 28984,
+      "url": "https://cdn.modrinth.com/data/DSVgwcji/versions/dGNP90t0/AI-Improvements-1.21-0.5.3.jar"
     },
     {
-      "name": "CustomSkinLoader",
-      "file": "CustomSkinLoader_Universal-15.1.jar",
-      "size": 222917,
-      "url": "https://mediafilez.forgecdn.net/files/9023/814/CustomSkinLoader_Universal-15.1.jar"
+      "name": "ferritecore",
+      "file": "ferritecore-7.0.3-neoforge.jar",
+      "size": 121559,
+      "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/x7kQWVju/ferritecore-7.0.3-neoforge.jar"
+    },
+    {
+      "name": "modernfix",
+      "file": "modernfix-neoforge-5.27.27+mc1.21.1.jar",
+      "size": 614138,
+      "url": "https://cdn.modrinth.com/data/nmDcB62a/versions/ZDZENbHH/modernfix-neoforge-5.27.27%2Bmc1.21.1.jar"
+    },
+    {
+      "name": "sophisticatedbackpacks",
+      "file": "sophisticatedbackpacks-1.21.1-3.26.19.2243.jar",
+      "size": 1260033,
+      "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/4JH1U61x/sophisticatedbackpacks-1.21.1-3.26.19.2243.jar"
+    },
+    {
+      "name": "sophisticatedcore",
+      "file": "sophisticatedcore-1.21.1-1.5.23.2446.jar",
+      "size": 1829042,
+      "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/yIF7JvxG/sophisticatedcore-1.21.1-1.5.23.2446.jar"
+    },
+    {
+      "name": "sophisticatedstorage",
+      "file": "sophisticatedstorage-1.21.1-1.6.13.2216.jar",
+      "size": 1935455,
+      "url": "https://cdn.modrinth.com/data/hMlaZH8f/versions/nzHREqMt/sophisticatedstorage-1.21.1-1.6.13.2216.jar"
     }
   ],
   "files": [
@@ -123,6 +113,51 @@
       "path": "servers.dat",
       "size": 68,
       "url": "https://raw.githubusercontent.com/DevJotaVx/jotapoke/main/files/servers.dat"
+    },
+    {
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar",
+      "size": 12372293,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/client-1.21.1-20240808.144430-extra.jar"
+    },
+    {
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar",
+      "size": 18725656,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/client-1.21.1-20240808.144430-srg.jar"
+    },
+    {
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-slim.jar",
+      "size": 14464635,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/client-1.21.1-20240808.144430-slim.jar"
+    },
+    {
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-mappings.txt",
+      "size": 9598610,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/client-1.21.1-20240808.144430-mappings.txt"
+    },
+    {
+      "path": "libraries/net/neoforged/neoforge/21.1.265/neoforge-21.1.265-client.jar",
+      "size": 5698522,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/neoforge-21.1.265-client.jar"
+    },
+    {
+      "path": "libraries/net/neoforged/neoforge/21.1.265/neoforge-21.1.265-universal.jar",
+      "size": 3559126,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/neoforge-21.1.265-universal.jar"
+    },
+    {
+      "path": "libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430-mappings.txt",
+      "size": 5601343,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/neoform-1.21.1-20240808.144430-mappings.txt"
+    },
+    {
+      "path": "libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430-mappings-merged.txt",
+      "size": 5636727,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/neoform-1.21.1-20240808.144430-mappings-merged.txt"
+    },
+    {
+      "path": "libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip",
+      "size": 1683830,
+      "url": "https://github.com/DevJotaVx/jotapoke/releases/download/v6/neoform-1.21.1-20240808.144430.zip"
     }
   ]
 }
