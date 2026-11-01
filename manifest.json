@@ -32,6 +32,66 @@
       "file": "IronBackpacks-1.12.2-3.0.8-12.jar",
       "size": 465363,
       "url": "https://mediafilez.forgecdn.net/files/2564/573/IronBackpacks-1.12.2-3.0.8-12.jar"
+    },
+    {
+      "name": "JEI",
+      "file": "jei_1.12.2-4.22.0.1034.jar",
+      "size": 715518,
+      "url": "https://mediafilez.forgecdn.net/files/8964/563/jei_1.12.2-4.22.0.1034.jar"
+    },
+    {
+      "name": "Mowzie's Mobs",
+      "file": "mowziesmobs-1.5.8.jar",
+      "size": 5185246,
+      "url": "https://mediafilez.forgecdn.net/files/3048/685/mowziesmobs-1.5.8.jar"
+    },
+    {
+      "name": "LLibrary",
+      "file": "llibrary-1.7.20-1.12.2.jar",
+      "size": 884550,
+      "url": "https://mediafilez.forgecdn.net/files/3116/493/llibrary-1.7.20-1.12.2.jar"
+    },
+    {
+      "name": "FoamFix",
+      "file": "foamfix-0.10.15-1.12.2.jar",
+      "size": 229335,
+      "url": "https://mediafilez.forgecdn.net/files/3973/967/foamfix-0.10.15-1.12.2.jar"
+    },
+    {
+      "name": "JourneyMap",
+      "file": "journeymap-forge-1.12.2-6.0.10.jar",
+      "size": 6055924,
+      "url": "https://mediafilez.forgecdn.net/files/9049/805/journeymap-forge-1.12.2-6.0.10.jar"
+    },
+    {
+      "name": "FancyMenu",
+      "file": "fancymenu_forge_2.14.9_MC_1.12-1.12.2.jar",
+      "size": 1260832,
+      "url": "https://mediafilez.forgecdn.net/files/4655/936/fancymenu_forge_2.14.9_MC_1.12-1.12.2.jar"
+    },
+    {
+      "name": "Konkrete",
+      "file": "konkrete_forge_1.6.1_MC_1.12-1.12.2.jar",
+      "size": 618150,
+      "url": "https://mediafilez.forgecdn.net/files/4514/895/konkrete_forge_1.6.1_MC_1.12-1.12.2.jar"
+    },
+    {
+      "name": "MixinBootstrap",
+      "file": "_MixinBootstrap-1.1.0.jar",
+      "size": 1119478,
+      "url": "https://mediafilez.forgecdn.net/files/3437/402/_MixinBootstrap-1.1.0.jar"
+    },
+    {
+      "name": "Schematica",
+      "file": "Schematica-1.12.2-1.8.0.169-universal.jar",
+      "size": 336150,
+      "url": "https://mediafilez.forgecdn.net/files/2554/100/Schematica-1.12.2-1.8.0.169-universal.jar"
+    },
+    {
+      "name": "LunatriusCore",
+      "file": "LunatriusCore-1.12.2-1.2.0.42-universal.jar",
+      "size": 76753,
+      "url": "https://mediafilez.forgecdn.net/files/2489/549/LunatriusCore-1.12.2-1.2.0.42-universal.jar"
     }
   ],
   "files": [
