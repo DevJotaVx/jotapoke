@@ -38,6 +38,53 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
             if (p != null && p.endsWith(":game")) return;
         }
         try { setup(this); } catch (Throwable t) { toast(this, "JotaPoke: erro ao preparar - " + t.getMessage()); }
+        try { installControls(this); } catch (Throwable ignored) {}
+        registerActivityLifecycleCallbacks(new ControlChooser());
+    }
+
+    // Layouts de controle do JotaPoke, copiados para files/controlmap.
+    static final String[] CONTROL_FILES = {"jotapoke_classico.json", "jotapoke_grandes.json", "jotapoke_canhoto.json"};
+    static final String[] CONTROL_NAMES = {"Clássico (setas à esquerda)", "Botões grandes", "Canhoto (setas à direita)"};
+
+    static void installControls(Context ctx) throws IOException {
+        File dir = new File(ctx.getExternalFilesDir(null), "controlmap");
+        dir.mkdirs();
+        for (String f : CONTROL_FILES) copyAssets(ctx.getAssets(), "jotapoke_controls/" + f, new File(dir, f));
+    }
+
+    // Pergunta o tipo de controle sempre que a tela inicial do launcher abre.
+    static class ControlChooser implements Application.ActivityLifecycleCallbacks {
+        boolean asked = false;
+        public void onActivityResumed(final android.app.Activity a) {
+            if (asked || !a.getClass().getName().endsWith("LauncherActivity")) return;
+            asked = true;
+            final android.content.SharedPreferences prefs = android.preference.PreferenceManager.getDefaultSharedPreferences(a);
+            final File dir = new File(a.getExternalFilesDir(null), "controlmap");
+            String current = prefs.getString("defaultCtrl", "");
+            int sel = 0;
+            for (int i = 0; i < CONTROL_FILES.length; i++) if (current.endsWith(CONTROL_FILES[i])) sel = i;
+            final int[] choice = {sel};
+            new android.app.AlertDialog.Builder(a)
+                .setTitle("Como você quer jogar?")
+                .setSingleChoiceItems(CONTROL_NAMES, sel, new android.content.DialogInterface.OnClickListener() {
+                    public void onClick(android.content.DialogInterface d, int w) { choice[0] = w; }
+                })
+                .setPositiveButton("Continuar", new android.content.DialogInterface.OnClickListener() {
+                    public void onClick(android.content.DialogInterface d, int w) {
+                        String path = new File(dir, CONTROL_FILES[choice[0]]).getAbsolutePath();
+                        prefs.edit().putString("defaultCtrl", path).apply();
+                        Toast.makeText(a, "Controle: " + CONTROL_NAMES[choice[0]], Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setCancelable(false)
+                .show();
+        }
+        public void onActivityCreated(android.app.Activity a, android.os.Bundle b) {}
+        public void onActivityStarted(android.app.Activity a) {}
+        public void onActivityPaused(android.app.Activity a) {}
+        public void onActivityStopped(android.app.Activity a) {}
+        public void onActivitySaveInstanceState(android.app.Activity a, android.os.Bundle b) {}
+        public void onActivityDestroyed(android.app.Activity a) {}
     }
 
     static void setup(final Context ctx) throws IOException {
