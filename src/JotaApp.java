@@ -25,6 +25,8 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
         {"Pixelmon", CDN + "4348/446/Pixelmon-1.12.2-8.4.3-universal.jar", "Pixelmon-1.12.2-8.4.3-universal.jar", "385736381"},
         {"MineColonies", CDN + "3951/291/minecolonies-1.12.2-0.11.841-BETA-universal.jar", "minecolonies-1.12.2-0.11.841-BETA-universal.jar", "34907058"},
         {"Structurize", CDN + "2901/463/structurize-1.12.2-0.10.277-RELEASE.jar", "structurize-1.12.2-0.10.277-RELEASE.jar", "1133312"},
+        {"Iron Chests", CDN + "2747/935/ironchest-1.12.2-7.0.72.847.jar", "ironchest-1.12.2-7.0.72.847.jar", "956692"},
+        {"Iron Backpacks", CDN + "2564/573/IronBackpacks-1.12.2-3.0.8-12.jar", "IronBackpacks-1.12.2-3.0.8-12.jar", "465363"},
     };
     static volatile boolean running = false;
 
