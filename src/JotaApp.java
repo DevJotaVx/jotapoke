@@ -59,13 +59,16 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
     static class ControlChooser implements Application.ActivityLifecycleCallbacks {
         boolean asked = false;
         public void onActivityResumed(final android.app.Activity a) {
-            if (asked || !a.getClass().getName().endsWith("LauncherActivity")) return;
+            if (!a.getClass().getName().endsWith("LauncherActivity")) return;
+            launcher = a;
+            if (pendingUpdate != null) { showUpdate(a); return; }
+            if (asked) return;
             asked = true;
             showChooser(a);
         }
         public void onActivityCreated(android.app.Activity a, android.os.Bundle b) {}
         public void onActivityStarted(android.app.Activity a) {}
-        public void onActivityPaused(android.app.Activity a) {}
+        public void onActivityPaused(android.app.Activity a) { if (a == launcher) launcher = null; }
         public void onActivityStopped(android.app.Activity a) {}
         public void onActivitySaveInstanceState(android.app.Activity a, android.os.Bundle b) {}
         public void onActivityDestroyed(android.app.Activity a) {}
@@ -241,6 +244,8 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
         modsDir.mkdirs();
         JSONObject man = null;
         try { man = new JSONObject(readUrl(MANIFEST_URL)); } catch (Throwable ignored) {}
+        // App desatualizado: não baixa mods da versão nova; a tela de atualização bloqueia o launcher.
+        if (checkAppUpdate(ctx, man)) return;
 
         String[][] mods = MODS;
         if (man != null && man.has("mods")) {
@@ -281,15 +286,143 @@ public class JotaApp extends net.kdt.pojavlaunch.PojavApplication {
         }
         if (changed) toast(ctx, "JotaPoke: tudo atualizado! Pode jogar.");
 
-        if (man != null && man.has("apkVersion")) {
-            long current = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionCode;
-            if (man.getLong("apkVersion") > current) {
-                File apk = new File(ctx.getExternalFilesDir("update"), "JotaPoke-" + man.getLong("apkVersion") + ".apk");
-                long size = man.getLong("apkSize");
-                if (apk.length() != size) download(ctx, "nova versão do app", man.getString("apkUrl"), apk, size);
-                installApk(ctx, apk);
+    }
+
+    // Atualização obrigatória do app: enquanto houver versão nova, o launcher fica bloqueado.
+    static volatile android.app.Activity launcher;
+    static volatile String[] pendingUpdate; // {url, size, version}
+    static android.app.Dialog updateDialog;
+
+    static boolean checkAppUpdate(Context ctx, JSONObject man) throws Exception {
+        if (man == null || !man.has("apkVersion")) return false;
+        long current = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionCode;
+        if (man.getLong("apkVersion") <= current) return false;
+        pendingUpdate = new String[]{man.getString("apkUrl"), String.valueOf(man.getLong("apkSize")), String.valueOf(man.getLong("apkVersion"))};
+        new Handler(Looper.getMainLooper()).post(new Runnable() { public void run() {
+            if (launcher != null) showUpdate(launcher);
+        }});
+        return true;
+    }
+
+    static void showUpdate(final android.app.Activity a) {
+        if (updateDialog != null && updateDialog.isShowing()) return;
+        final String[] up = pendingUpdate;
+        final float dp = a.getResources().getDisplayMetrics().density;
+        final android.app.Dialog dlg = new android.app.Dialog(a, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+        updateDialog = dlg;
+        dlg.setCancelable(false);
+        dlg.setOnKeyListener(new android.content.DialogInterface.OnKeyListener() {
+            public boolean onKey(android.content.DialogInterface d, int k, android.view.KeyEvent e) {
+                if (k == android.view.KeyEvent.KEYCODE_BACK && e.getAction() == android.view.KeyEvent.ACTION_UP) a.finishAffinity();
+                return k == android.view.KeyEvent.KEYCODE_BACK;
             }
+        });
+
+        android.widget.LinearLayout root = new android.widget.LinearLayout(a);
+        root.setOrientation(android.widget.LinearLayout.VERTICAL);
+        root.setGravity(android.view.Gravity.CENTER);
+        root.setPadding((int) (24 * dp), (int) (24 * dp), (int) (24 * dp), (int) (24 * dp));
+        root.setBackground(new android.graphics.drawable.GradientDrawable(
+            android.graphics.drawable.GradientDrawable.Orientation.TOP_BOTTOM, new int[]{0xFF14204F, 0xFF0E3B2A}));
+
+        android.widget.ImageView icon = new android.widget.ImageView(a);
+        icon.setImageDrawable(a.getApplicationInfo().loadIcon(a.getPackageManager()));
+        root.addView(icon, new android.widget.LinearLayout.LayoutParams((int) (96 * dp), (int) (96 * dp)));
+
+        android.widget.TextView title = new android.widget.TextView(a);
+        title.setText("Versão antiga do JotaPoke");
+        title.setTextColor(0xFFFFFFFF);
+        title.setTextSize(24);
+        title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        title.setGravity(android.view.Gravity.CENTER);
+        title.setPadding(0, (int) (16 * dp), 0, (int) (8 * dp));
+        root.addView(title);
+
+        final android.widget.TextView msg = new android.widget.TextView(a);
+        msg.setText("Tem uma versão nova do app. Para continuar jogando no servidor, instale a atualização.");
+        msg.setTextColor(0xFFB8C7FF);
+        msg.setTextSize(15);
+        msg.setGravity(android.view.Gravity.CENTER);
+        msg.setPadding(0, 0, 0, (int) (20 * dp));
+        root.addView(msg);
+
+        final android.widget.ProgressBar bar = new android.widget.ProgressBar(a, null, android.R.attr.progressBarStyleHorizontal);
+        bar.setMax(100);
+        bar.setVisibility(android.view.View.GONE);
+        android.widget.LinearLayout.LayoutParams blp = new android.widget.LinearLayout.LayoutParams((int) (260 * dp), (int) (12 * dp));
+        blp.bottomMargin = (int) (16 * dp);
+        root.addView(bar, blp);
+
+        final android.widget.Button go = new android.widget.Button(a);
+        go.setText("Instalar agora");
+        go.setAllCaps(false);
+        go.setTextColor(0xFFFFFFFF);
+        go.setTextSize(18);
+        go.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        android.graphics.drawable.GradientDrawable bbg = new android.graphics.drawable.GradientDrawable();
+        bbg.setColor(0xFF3FA535); bbg.setCornerRadius(12 * dp); bbg.setStroke((int) (2 * dp), 0xFF2A7A22);
+        go.setBackground(bbg);
+        root.addView(go, new android.widget.LinearLayout.LayoutParams((int) (260 * dp), (int) (56 * dp)));
+
+        go.setOnClickListener(new android.view.View.OnClickListener() {
+            public void onClick(android.view.View v) {
+                final File apk = new File(a.getExternalFilesDir("update"), "JotaPoke-" + up[2] + ".apk");
+                final long size = Long.parseLong(up[1]);
+                if (apk.length() == size) { installApk(a, apk); return; }
+                go.setEnabled(false);
+                go.setText("Baixando...");
+                bar.setVisibility(android.view.View.VISIBLE);
+                final Handler h = new Handler(Looper.getMainLooper());
+                new Thread(new Runnable() { public void run() {
+                    try {
+                        downloadWithProgress(up[0], apk, size, new Progress() {
+                            public void at(final int pct) { h.post(new Runnable() { public void run() {
+                                bar.setProgress(pct); go.setText("Baixando... " + pct + "%");
+                            }}); }
+                        });
+                        h.post(new Runnable() { public void run() {
+                            go.setEnabled(true); go.setText("Instalar agora"); installApk(a, apk);
+                        }});
+                    } catch (final Throwable t) {
+                        h.post(new Runnable() { public void run() {
+                            go.setEnabled(true); go.setText("Tentar de novo");
+                            msg.setText("Não deu para baixar a atualização. Confira a internet e toque em Tentar de novo.");
+                        }});
+                    }
+                }}).start();
+            }
+        });
+
+        dlg.setContentView(root);
+        dlg.show();
+    }
+
+    interface Progress { void at(int pct); }
+
+    static void downloadWithProgress(String url, File dest, long size, Progress p) throws IOException {
+        dest.getParentFile().mkdirs();
+        File part = new File(dest.getPath() + ".part");
+        long have = part.exists() ? part.length() : 0;
+        if (have > size) { part.delete(); have = 0; }
+        HttpURLConnection c = (HttpURLConnection) new URL(url).openConnection();
+        c.setInstanceFollowRedirects(true);
+        c.setRequestProperty("User-Agent", "JotaPoke");
+        if (have > 0) c.setRequestProperty("Range", "bytes=" + have + "-");
+        int code = c.getResponseCode();
+        if (code == 200) have = 0;
+        else if (code != 206) throw new IOException("HTTP " + code);
+        InputStream in = c.getInputStream();
+        OutputStream out = new FileOutputStream(part, have > 0);
+        byte[] b = new byte[131072]; int n; long done = have; int last = -1;
+        while ((n = in.read(b)) > 0) {
+            out.write(b, 0, n); done += n;
+            int pct = (int) (done * 100 / size);
+            if (pct != last) { last = pct; p.at(pct); }
         }
+        out.close(); in.close();
+        if (part.length() != size) throw new IOException("tamanho errado");
+        dest.delete();
+        if (!part.renameTo(dest)) throw new IOException("rename");
     }
 
     static void installApk(final Context ctx, final File apk) {
