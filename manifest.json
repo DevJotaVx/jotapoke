@@ -184,6 +184,36 @@
       "file": "Hwyla-1.8.26-B41_1.12.2.jar",
       "size": 453778,
       "url": "https://cdn.modrinth.com/data/kr1RaEqy/versions/pgcAdhbb/Hwyla-1.8.26-B41_1.12.2.jar"
+    },
+    {
+      "name": "NetherPortalFix",
+      "file": "NetherPortalFix_1.12.1-5.3.17.jar",
+      "size": 109445,
+      "url": "https://cdn.modrinth.com/data/nPZr02ET/versions/BrV6KDNp/NetherPortalFix_1.12.1-5.3.17.jar"
+    },
+    {
+      "name": "Simple Storage Network",
+      "file": "SimpleStorageNetwork-1.12.2-2.0.1.jar",
+      "size": 447132,
+      "url": "https://cdn.modrinth.com/data/cVIr8Vz1/versions/JdylTyat/SimpleStorageNetwork-1.12.2-2.0.1.jar"
+    },
+    {
+      "name": "OreExcavation",
+      "file": "OreExcavation-1.4.150.jar",
+      "size": 184743,
+      "url": "https://mediafilez.forgecdn.net/files/2897/369/OreExcavation-1.4.150.jar"
+    },
+    {
+      "name": "RandomPatches",
+      "file": "randompatches-1.12.2-1.21.0.3.jar",
+      "size": 283446,
+      "url": "https://mediafilez.forgecdn.net/files/2943/191/randompatches-1.12.2-1.21.0.3.jar"
+    },
+    {
+      "name": "CTM",
+      "file": "CTM-MC1.12.2-1.0.2.31.jar",
+      "size": 199045,
+      "url": "https://mediafilez.forgecdn.net/files/2915/363/CTM-MC1.12.2-1.0.2.31.jar"
     }
   ],
   "files": [
