@@ -8,3 +8,7 @@ App Android (baseado no [PojavLauncher](https://github.com/PojavLauncherTeam/Poj
 - `files/`: arquivos extras do jogo (ex.: lista de servidores).
 - `src/`: código da parte de atualização automática (`JotaApp.java`).
 - Baixe o APK em [Releases](https://github.com/DevJotaVx/jotapoke/releases).
+
+## Licenças
+
+- `files/mods/phosphor-*.jar`: Phosphor, de JellySquid, licença LGPL-3.0 (https://github.com/CaffeineMC/phosphor-fabric). Redistribuído sem alterações.

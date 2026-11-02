@@ -118,6 +118,72 @@
       "file": "CustomSkinLoader_Universal-15.1.jar",
       "size": 222917,
       "url": "https://mediafilez.forgecdn.net/files/9023/814/CustomSkinLoader_Universal-15.1.jar"
+    },
+    {
+      "name": "Phosphor",
+      "file": "phosphor-1.12.2-0.2.6+build50-universal.jar",
+      "size": 1082311,
+      "url": "https://raw.githubusercontent.com/DevJotaVx/jotapoke/main/files/mods/phosphor-1.12.2-0.2.6%2Bbuild50-universal.jar"
+    },
+    {
+      "name": "FastLeafDecay",
+      "file": "FastLeafDecay-v14.jar",
+      "size": 5200,
+      "url": "https://mediafilez.forgecdn.net/files/2463/272/FastLeafDecay-v14.jar"
+    },
+    {
+      "name": "Morpheus",
+      "file": "Morpheus-1.12.2-3.5.106.jar",
+      "size": 21508,
+      "url": "https://mediafilez.forgecdn.net/files/2664/449/Morpheus-1.12.2-3.5.106.jar"
+    },
+    {
+      "name": "Mouse Tweaks",
+      "file": "MouseTweaks-2.10-mc1.12.2.jar",
+      "size": 75170,
+      "url": "https://mediafilez.forgecdn.net/files/2671/937/MouseTweaks-2.10-mc1.12.2.jar"
+    },
+    {
+      "name": "Gravestone",
+      "file": "gravestone-1.10.3.jar",
+      "size": 129433,
+      "url": "https://mediafilez.forgecdn.net/files/2744/766/gravestone-1.10.3.jar"
+    },
+    {
+      "name": "Torchmaster",
+      "file": "torchmaster_1.12.2-1.8.1.81.jar",
+      "size": 167213,
+      "url": "https://mediafilez.forgecdn.net/files/2829/232/torchmaster_1.12.2-1.8.1.81.jar"
+    },
+    {
+      "name": "Storage Drawers",
+      "file": "StorageDrawers-1.12.2-5.4.2.jar",
+      "size": 605947,
+      "url": "https://mediafilez.forgecdn.net/files/2952/606/StorageDrawers-1.12.2-5.4.2.jar"
+    },
+    {
+      "name": "Chameleon",
+      "file": "Chameleon-1.12-4.1.3.jar",
+      "size": 96859,
+      "url": "https://mediafilez.forgecdn.net/files/2450/900/Chameleon-1.12-4.1.3.jar"
+    },
+    {
+      "name": "AppleSkin",
+      "file": "AppleSkin-mc1.12-1.0.14.jar",
+      "size": 33683,
+      "url": "https://cdn.modrinth.com/data/EsAfCjCV/versions/Tsz4BT2X/AppleSkin-mc1.12-1.0.14.jar"
+    },
+    {
+      "name": "Carry On",
+      "file": "carryon-1.12.2-1.12.7.23.jar",
+      "size": 309188,
+      "url": "https://cdn.modrinth.com/data/joEfVgkn/versions/uGbxgawj/carryon-1.12.2-1.12.7.23.jar"
+    },
+    {
+      "name": "Hwyla",
+      "file": "Hwyla-1.8.26-B41_1.12.2.jar",
+      "size": 453778,
+      "url": "https://cdn.modrinth.com/data/kr1RaEqy/versions/pgcAdhbb/Hwyla-1.8.26-B41_1.12.2.jar"
     }
   ],
   "files": [
