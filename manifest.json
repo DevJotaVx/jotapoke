@@ -232,6 +232,42 @@
       "file": "NoMobSpawningOnTrees-1.2.2-mc1.12.2.jar",
       "size": 40598,
       "url": "https://mediafilez.forgecdn.net/files/2563/292/NoMobSpawningOnTrees-1.2.2-mc1.12.2.jar"
+    },
+    {
+      "name": "Neat",
+      "file": "Neat+1.4-17.jar",
+      "size": 18527,
+      "url": "https://cdn.modrinth.com/data/Ins7SzzR/versions/1.4-17/Neat%2B1.4-17.jar"
+    },
+    {
+      "name": "Nature's Compass",
+      "file": "NaturesCompass-1.12.2-1.8.5-forge.jar",
+      "size": 196434,
+      "url": "https://cdn.modrinth.com/data/fPetb5Kh/versions/kMPLisZs/NaturesCompass-1.12.2-1.8.5-forge.jar"
+    },
+    {
+      "name": "Inventory Tweaks",
+      "file": "InventoryTweaks-1.63.jar",
+      "size": 263258,
+      "url": "https://mediafilez.forgecdn.net/files/2482/481/InventoryTweaks-1.63.jar"
+    },
+    {
+      "name": "Toast Control",
+      "file": "Toast Control-1.12.2-1.8.1.jar",
+      "size": 21668,
+      "url": "https://mediafilez.forgecdn.net/files/2707/353/Toast%20Control-1.12.2-1.8.1.jar"
+    },
+    {
+      "name": "Placebo",
+      "file": "Placebo-1.12.2-1.6.1.jar",
+      "size": 77207,
+      "url": "https://mediafilez.forgecdn.net/files/4629/597/Placebo-1.12.2-1.6.1.jar"
+    },
+    {
+      "name": "FallingTree",
+      "file": "FallingTree-1.12.2-2.4.0.jar",
+      "size": 168418,
+      "url": "https://mediafilez.forgecdn.net/files/3064/35/FallingTree-1.12.2-2.4.0.jar"
     }
   ],
   "files": [
